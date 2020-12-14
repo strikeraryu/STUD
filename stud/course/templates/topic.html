@@ -1,0 +1,164 @@
+̥̥{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/topic.css' %}">
+    <title>STUD Topics Page</title>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="ti-unlink"></span>
+                <span>Dashboard</span>
+            </h3>
+            <label for="sidebar-toggle" class="ti-menu-alt"></label>
+            <span class="ti-menu-alt"></span>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/">
+                        <span class="ti-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/upcoming_events">
+                        <span class="ti-about"></span>
+                        <span>Upcoming Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/course">
+                        <span class="ti-contact"></span>
+                        <span>All Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <span class="ti-contact"></span>
+                        <span>ContactUs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="main-body">
+        <header id="main-header" class="py-4 bg-light text-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>
+                            <i class="fas fa-cog"></i>Topics</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ACTIONS -->
+        <section id="actions" class="py-4 mb-4 bg-light">
+
+        </section>
+
+        <!-- POSTS -->
+        <section id="posts">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Discrete Math Tools: Topics</h4>
+                            </div>
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Topic Name</th>
+                                        <th>Weightage</th>
+                                        <th>Module No</th>
+                                        <th>Resourses</th>
+                                        <th>Classes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for topic in topics %}
+                                    <tr data-toggle="collapse" id="table{{ topic.id }}" data-target=".table{{ topic.id }}">
+                                        <td>{{ topic.id }}</td>
+                                        <td>{{ topic.topic_name }}</td>
+                                        <td>{{ topic.weightage }}%</td>
+                                        <td>{{ topic.module_no }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="dropbtn">Resourses</button>
+                                                <div class="dropdown-content">
+                                                    <a href="#">Lecture 1</a>
+                                                    <a href="#">Lecture 2</a>
+                                                    <a href="#">Lecture 3</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><button class="btn btn-default btn-sm">View More</button></td>
+                                    </tr>
+                                    <tr class="collapse table{{ topic.id }}">
+                                        <td colspan="999">
+                                            {% if topic.tot_classes != 0 %}
+                                            <div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Batch</th>
+                                                            <th>Date</th>
+                                                            <th>Start Time</th>
+                                                            <th>End time</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for class in topic.classes %}
+                                                        <tr>
+                                                            <th>{{ class.id }}</th>
+                                                            <th><a href='/class/{{ class.batch_no }}'>{{ class.batch_no }}</a></th>
+                                                            <th>{{ class.date }}</th>
+                                                            <th>{{ class.start_time|date:'H:i' }}</th>
+                                                            <th>{{ class.end_time|date:'H:i' }}</th>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            {% else %}
+                                            <p>No classes</p>
+                                            {% endif %}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

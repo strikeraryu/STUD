@@ -1,0 +1,159 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: #027581;
+    color: #fff;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar li {
+    margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.sidebar a span:last-child {
+    padding-left: 0.6rem;
+}
+
+.main-content {
+    position: relative;
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+
+header {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper span a {
+    padding-left: 34rem;
+    font-size: 1.5rem;
+}
+
+main {
+    background: #f1f5f9;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.recent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.activity-grid {
+    border: 1rem;
+    display: grid;
+    grid-template-columns: 100% 25%;
+    grid-column-gap: 1.5rem;
+}
+
+.activity-card,
+.summary-card,
+.bday-card {
+    background: #fff;
+    border-radius: 7px;
+}
+
+.activity-card h3 {
+    font-size: 1.4rem;
+    color: #8390A2;
+    margin: 1rem;
+}
+
+.activity-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.activity-card thead {
+    background: #efefef;
+    text-align: left;
+}
+
+th,
+td {
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    color: #1D2231;
+}
+
+td {
+    font-size: 1.1rem;
+}
+
+tbody t:nth-child(even) {
+    background: #f9fafc;
+}
+
+.badge {
+    padding: .2rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.badgesuccess {
+    width: 200px;
+}
+
+.badgesuccess a {
+    text-decoration: none;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.badgewarning {
+    width: 250px;
+}
+
+.td-team {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,238 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: #027581;
+    color: #fff;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar li {
+    margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.sidebar a span:last-child {
+    padding-left: 0.6rem;
+}
+
+.main-content {
+    position: relative;
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+
+header {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper span a {
+    padding-left: 34rem;
+    font-size: 1.5rem;
+}
+
+main {
+    background: #f1f5f9;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.recent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-column-gap: 1.5rem;
+}
+
+.activity-card,
+.summary-card,
+.bday-card {
+    background: #fff;
+    border-radius: 7px;
+}
+
+.activity-card h3 {
+    color: #8390A2;
+    margin: 1rem;
+}
+
+.activity-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.activity-card thead {
+    background: #efefef;
+    text-align: left;
+}
+
+th,
+td {
+    font-size: .9rem;
+    padding: 1rem 1rem;
+    color: #1D2231;
+}
+
+td {
+    font-size: .8rem;
+}
+
+tbody t:nth-child(even) {
+    background: #f9fafc;
+}
+
+.badge {
+    padding: .2rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.badgesuccess {
+    background: #DEF7EC;
+    color: #027581
+}
+
+.badgewarning {
+    background: #F0F6B2;
+    color: orange;
+}
+
+.td-team {
+    display: flex;
+    align-items: center;
+}
+
+.img-1,
+.img-2,
+.img-3 {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    margin-left: -10px;
+    border: 3px solid #efefef;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-1 {
+    background-image: url(/static/images/t1.jfif);
+}
+
+.img-2 {
+    background-image: url(/static/images/t2.jfif);
+}
+
+.img-3 {
+    background-image: url(/static/images/t4.jpg);
+}
+
+.summary-card {
+    margin-bottom: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.summary-single {
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.summary-single span {
+    font-size: 1.5rem;
+    color: #777;
+    padding-right: 1rem;
+}
+
+.summary-single h5 {
+    color: #027581;
+    font-size: 1.1rem;
+    margin-bottom: 0rem !important;
+}
+
+.summary-single small {
+    font-weight: 700;
+    color: #8390A2;
+}
+
+.bday-flex {
+    display: flex;
+    align-items: center;
+}
+
+.bday-card {
+    padding: 1rem;
+}
+
+.bday-info h3 {
+    margin-bottom: 1rem;
+}
+
+.bday-info small {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #8390A2;
+}
+
+.text-center {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.text-center button {
+    background: #027581;
+    color: #fff;
+    border: 1px solid #027581;
+    border-radius: 4px;
+    padding: .4rem 1rem;
+}
