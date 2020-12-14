@@ -1,0 +1,90 @@
+̥̥{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/upcoming_event.css' %}" />
+</head>
+
+<body>
+    <input type="checkbox" id="sidebar-toggle" />
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="ti-unlink"></span>
+                <span>Dashboard</span>
+            </h3>
+            <label for="sidebar-toggle" class="ti-menu-alt"></label>
+            <span class="ti-menu-alt"></span>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/">
+                        <span class="ti-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/upcoming_events">
+                        <span class="ti-about"></span>
+                        <span>Upcoming Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/course">
+                        <span class="ti-contact"></span>
+                        <span>All Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <span class="ti-contact"></span>
+                        <span>ContactUs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="search-wrapper">
+                <span class="ti-search"><a>STUD</a></span>
+            </div>
+        </header>
+        <main>
+            <h2 class="dash-title">Upcoming Event</h2>
+            <div class="dash-cards">
+                {% for event in events %}
+                <div class="card-single">
+                    <div class="card-body">
+                        <span class="ti-briefcase"></span>
+                        <div>
+                            <h4>Event Name: <span>{{ event.event_name }}</span></h4>
+                            <h4>Event Date: <span>{{ event.event_date }}</span></h4>
+                            <h4>Start Time: <span>{{ event.start_time }}</span></h4>
+                            <h4>End Time: <span>{{ event.end_time }}</span></h4>
+                            <h4>
+                                Course Id:
+                                <a href="/topic/{{ event.course_id }}"><span>{{ event.course_id }}</span></a
+                  >
+                </h4>
+                <h4>
+                  Batch:
+                  <a href="/class/{{ event.batch_no }}"
+                    ><span>{{ event.batch_no }}</span></a
+                  >
+                </h4>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

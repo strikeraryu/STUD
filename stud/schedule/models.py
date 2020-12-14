@@ -54,3 +54,38 @@ class Teaches(models.Model):
         managed = False
         db_table = 'teaches'
         unique_together = (('class_no', 'topic_no', 'course'),)
+
+
+class Event(models.Model):
+    # Field name made lowercase.
+    event_id = models.IntegerField(db_column='Event_id', primary_key=True)
+    # Field name made lowercase.
+    event_name = models.CharField(db_column='Event_Name', max_length=100)
+    # Field name made lowercase.
+    event_date = models.DateField(
+        db_column='Event_date', blank=True, null=True)
+    # Field name made lowercase.
+    start_time = models.TimeField(
+        db_column='Start_time', blank=True, null=True)
+    # Field name made lowercase.
+    end_time = models.TimeField(db_column='End_time', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = '_event'
+
+
+class UpcomingEvent(models.Model):
+    # Field name made lowercase.
+    batch_no = models.OneToOneField(
+        Batch, models.DO_NOTHING, db_column='Batch_no', primary_key=True)
+    # Field name made lowercase.
+    course = models.ForeignKey(
+        Course, models.DO_NOTHING, db_column='Course_id')
+    # Field name made lowercase.
+    event = models.ForeignKey(Event, models.DO_NOTHING, db_column='Event_id')
+
+    class Meta:
+        managed = False
+        db_table = 'upcoming_event'
+        unique_together = (('batch_no', 'course', 'event'),)

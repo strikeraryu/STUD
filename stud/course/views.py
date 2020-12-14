@@ -18,7 +18,7 @@ def course_view(Request, batch_no='None', *args, **kargs):
             total_course += 1
             course_name = Course.objects.get(course_id=e.course_id).course_name
             courses.append(
-                {"id": ind+1, "course_name": course_name, "course_id": e.course_id})
+                {"id": ind+1, "course_name": course_name, "course_id": e.course_id, 'teacher': e.teacher})
     return render(Request, 'course.html', {'courses': courses, "total_course": total_course, 'batch_no': batch_no})
 
 

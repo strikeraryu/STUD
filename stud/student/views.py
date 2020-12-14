@@ -14,3 +14,4 @@ def batch_view(request, *args, **kargs):
         batches.append({'batch_no': b.batch_no, 'mentor_name': mentor_name})
 
     return render(request, 'batch.html', {'batches': batches, 'total_batch': totol_batch})
+

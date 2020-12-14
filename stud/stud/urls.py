@@ -18,12 +18,13 @@ from django.urls import path
 
 from student.views import batch_view
 from course.views import course_view, topic_view
-from schedule.views import class_view
+from schedule.views import class_view, upcoming_events_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', batch_view, name='batch'),
     path('batch/', batch_view, name='batch'),
+    path('upcoming_events/', upcoming_events_view, name='batch'),
     path('course/<batch_no>', course_view, name='course'), 
     path('class/<batch_no>', class_view, name='class'), 
     path('topic/<course_id>', topic_view, name='topic'), 
